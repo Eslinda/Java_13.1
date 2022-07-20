@@ -50,6 +50,7 @@ public class TournamentTest {
             game.round(player5.getName(), player1.getName());
         });
     }
+
     @Test
     public void shouldThrowExceptionSecondPlayer() {
         assertThrows(NotRegisteredException.class, () -> {

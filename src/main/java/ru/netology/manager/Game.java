@@ -5,18 +5,20 @@ import ru.netology.domain.Player;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
 
-    private Collection<Player> players;
+    private Map<String, Player> players;
 
     public Game() {
-        this.players = new ArrayList<>();
+        this.players = new HashMap<>();
     }
 
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
 
     }
 
@@ -38,10 +40,8 @@ public class Game {
     }
 
     public Player findPlayer(String name) {
-        for (Player player : players) {
-            if (name == player.getName()) {
-                return player;
-            }
+        if (players.containsKey(name)) {
+            return players.get(name);
         }
         return null;
     }
